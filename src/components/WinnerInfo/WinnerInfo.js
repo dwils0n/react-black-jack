@@ -1,21 +1,47 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import './Overlay.css';
+import './WinnerInfo.css';
 import Card from '../Card/Card';
 
-class Overlay extends Component {
+class WinnerInfo extends Component {
 
     /**
-        * render the BUST text based on if player is bust
+        * fire the reset event
+        *
+        * @param {event} e - the event passed in
+    */
+    resetClick(e) {
+        this.props.handleGameReset();
+    }
+
+    /**
+        * render the BUST text based on if User is bust
         *
         * @param {string} propCheck - either isUserBust or isDealerBust
         * 
         * @returns {string} - returns the BUST text
     */
-    renderIsBust(propCheck) {
+    renderIsUserBust() {
         let text = false;
 
-        if (this.props[propCheck]) {
+        if (this.props.isUserBust) {
+            text = '(BUST)';
+        }
+
+        return text;
+    }
+
+    /**
+        * render the BUST text based on if dealer is bust
+        *
+        * @param {string} propCheck - either isUserBust or isDealerBust
+        * 
+        * @returns {string} - returns the BUST text
+    */
+    renderIsDealerBust() {
+        let text = false;
+
+        if (this.props.isDealerBust) {
             text = '(BUST)';
         }
 
@@ -46,21 +72,21 @@ class Overlay extends Component {
     */
     render() {
         return (
-            <div className="overlay">
-                <div className="overlay__content">
+            <div className="winner-info">
+                <div className="winner-info__content">
                     <h1 className="heading">{this.props.winnerText}</h1>
-                    <div className="overlay__scores">
-                        <div className="overlay__player-info">
-                            <span className="overlay__score-item">Users total: {this.props.userTotal} {this.renderIsBust('isUserBust')}</span>
+                    <div className="winner-info__scores">
+                        <div className="winner-info__player-info">
+                            <span className="winner-info__score-item">Users total: {this.props.userTotal} {this.renderIsUserBust()}</span>
                             {this.renderCards(this.props.userCards)}
                         </div>
-                        <div className="overlay__player-info">
-                            <span className="overlay__score-item">Dealers total: {this.props.dealerTotal} {this.renderIsBust('isDealerBust')}</span>
+                        <div className="winner-info__player-info">
+                            <span className="winner-info__score-item">Dealers total: {this.props.dealerTotal} {this.renderIsDealerBust()}</span>
                             {this.renderCards(this.props.dealerCards)}
                         </div>
                     </div>
                 </div>
-                <button className="btn" onClick={this.props.clickHandler}>
+                <button className="btn" onClick={this.resetClick.bind(this)}>
                     Reset Deck
                 </button>
             </div>
@@ -68,15 +94,15 @@ class Overlay extends Component {
     }
 };
 
-Overlay.propTypes = {
+WinnerInfo.propTypes = {
+    cardDeck: PropTypes.shape({}).isRequired,
     userCards: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
     dealerCards: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
     isUserBust: PropTypes.bool.isRequired,
     isDealerBust: PropTypes.bool.isRequired,
     dealerTotal: PropTypes.number.isRequired,
     userTotal: PropTypes.number.isRequired,
-    winnerText: PropTypes.string.isRequired,
-    clickHandler: PropTypes.func.isRequired
+    winnerText: PropTypes.string.isRequired
 }
 
-export default Overlay;
+export default WinnerInfo;

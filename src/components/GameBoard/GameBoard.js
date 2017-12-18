@@ -6,6 +6,10 @@ import Card from '../Card/Card';
 
 class GameBoard extends Component {
 
+    componentWillMount() {
+        this.props.handleInitialiseGame(this.props.cardDeck);
+    }
+
     /**
         * rener the cards component
         *
@@ -14,7 +18,7 @@ class GameBoard extends Component {
         * @returns {component} - returns the cardsList
     */
     renderCards(player) {
-        let cardsList = this.props[player].cards.map((card, i) => {
+        let cardsList = this.props.playerCards[player].map((card, i) => {
             return (
                 <Card cardId={card.id} cardSuit={card.suit} modifierClass='game-board__card' key={`card-${card.suit}-${card.id}`}/>
             )
@@ -29,7 +33,7 @@ class GameBoard extends Component {
         *
         * @returns {component} returns the component
     */
-    render() {        
+    render() {
         return (
             <div className="game-board">
                 <div className="user-selection">
@@ -50,8 +54,12 @@ class GameBoard extends Component {
 };
 
 GameBoard.propTypes = {
-    user: PropTypes.shape({}).isRequired,
-    dealer: PropTypes.shape({}).isRequired
+    cardDeck: PropTypes.shape({}).isRequired,
+    handleInitialiseGame: PropTypes.func.isRequired,
+    playerCards: PropTypes.shape({
+        user: PropTypes.arrayOf(PropTypes.shape()).isRequired,
+        dealer: PropTypes.arrayOf(PropTypes.shape()).isRequired
+    }).isRequired
 }
 
 export default GameBoard;

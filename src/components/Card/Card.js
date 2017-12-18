@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import './Card.css';
-import SvgIcons from '../../utils/SvgIcons';
+import svgIcons from '../../constants/svgIcons';
 
 class Card extends Component {
 
@@ -27,7 +27,7 @@ class Card extends Component {
     render() {
         return (
             <span className={this.computeCardClass()}>
-                {SvgIcons[this.props.cardSuit]}
+                {svgIcons[this.props.cardSuit]}
                 {this.props.cardId}
             </span>
         );
