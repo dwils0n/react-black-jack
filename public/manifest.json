@@ -1,0 +1,8 @@
+{
+    "short_name": "Black Jack",
+    "name": "Black Jack",
+    "icons": [],
+    "start_url": "./index.html",
+    "display": "standalone",
+    "background_color": "#ffffff"
+}

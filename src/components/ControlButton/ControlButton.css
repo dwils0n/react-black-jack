@@ -1,0 +1,17 @@
+.control-btn { 
+    background: #EEEEEE;
+    text-align: center;
+    padding: 50px;
+    border-radius: 0;
+    border:0;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+.control-btn:focus {
+    outline: 0;
+}
+
+.control-btn:last-child {
+    margin-right:0;
+}

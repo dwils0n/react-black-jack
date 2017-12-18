@@ -1,0 +1,38 @@
+.card { 
+    width: 60px;
+    height:90px;
+    display: inline-block;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #CCCCCC;
+    backgrround: #FFF;
+    position:relative;
+    text-align: center;
+}
+
+.card:last-child {
+  margin-right: 0;
+}
+
+.card--hearts,
+.card-diamonds {
+    color:red;
+    fill: red;
+}
+
+.card--spades,
+.card--clubs {
+    color: black;
+    fill: black;
+}
+
+.card--small {
+    width: 40px;
+    height: 60px;
+    font-size:10px;
+}
+
+.card--v-align {
+    vertical-align: middle;
+}

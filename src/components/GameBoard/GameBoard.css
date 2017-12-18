@@ -1,0 +1,51 @@
+.game-board {
+    padding: 50px;
+    display: flex;
+}
+
+.dealer-selection,
+.user-selection {
+    flex-grow:1;
+    min-height:60px;
+}
+
+.dealer-selection__value,
+.user-selection__value {
+    font-weight:bold;
+    display: block;
+    padding-top: 10px;
+    position: relative;
+}
+
+
+.game-board__card {
+    -webkit-animation: CARD-SLIDE-IN .6s; /* Safari 4+ */
+    -moz-animation: CARD-SLIDE-IN .6s; /* Fx 5+ */
+    -o-animation: CARD-SLIDE-IN .6s; /* Opera 12+ */
+    animation: CARD-SLIDE-IN .6s; /* IE 10+, Fx 29+ */
+}
+
+@-webkit-keyframes CARD-SLIDE-IN {
+    0%   { opacity: 0; bottom: 80px;}
+    60% { opacity: 1; bottom: 0;}
+    80% { opacity: 1; bottom: 3px;}
+    100% { opacity: 1; bottom: 0;}
+}
+@-moz-keyframes CARD-SLIDE-IN {
+    0%   { opacity: 0; bottom: 80px;}
+    60% { opacity: 1; bottom: 0;}
+    80% { opacity: 1; bottom: 3px;}
+    100% { opacity: 1; bottom: 0;}
+}
+@-o-keyframes CARD-SLIDE-IN {
+    0%   { opacity: 0; bottom: 80px;}
+    60% { opacity: 1; bottom: 0;}
+    80% { opacity: 1; bottom: 3px;}
+    100% { opacity: 1; bottom: 0;}
+}
+@keyframes CARD-SLIDE-IN {
+    0%   { opacity: 0; bottom: 80px;}
+    60% { opacity: 1; bottom: 0;}
+    80% { opacity: 1; bottom: 3px;}
+    100% { opacity: 1; bottom: 0;}
+}

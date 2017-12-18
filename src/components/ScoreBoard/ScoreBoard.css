@@ -1,0 +1,26 @@
+.score-board {
+    width: 100%;
+    display: flex;
+    padding: 20px;
+    border-bottom: 1px solid #CCCCCC;
+    box-sizing: border-box;
+    text-align: left;
+}
+
+.score-board__title {
+    text-align: center;
+    flex-grow: 2;
+}
+
+.score-board__dealer {
+    text-align: right;
+    flex-grow: 1;
+}
+
+.score-board__user {
+    flex-grow: 1;
+}
+
+.score-value {
+    font-weight: 600;
+}

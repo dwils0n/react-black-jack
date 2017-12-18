@@ -1,0 +1,8 @@
+.controls {
+    width: 100%;
+    display: flex;
+}
+
+.controls__item {
+    flex-grow: 1;
+}
