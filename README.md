@@ -1,5 +1,7 @@
 # Dan Wilson - Black Jack
 
+[![Build Status](https://travis-ci.org/dwils0n/react-black-jack.svg?branch=master)](https://travis-ci.org/dwils0n/react-black-jack)
+
 This is an example of the classic Black Jack Card Game built in React using Redux
 
 ### Start the app
