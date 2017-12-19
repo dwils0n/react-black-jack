@@ -19,7 +19,7 @@ class PreGameInfo extends Component {
     */
     render() {
         return (
-            <div>
+            <div className='pre-game-info'>
                 <GameRules />
                 <button className="btn" onClick={this.triggerStartGame.bind(this)}>Start Game</button>
             </div>

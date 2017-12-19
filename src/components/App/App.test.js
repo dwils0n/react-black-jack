@@ -1,27 +1,40 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 import App from './App';
 
 it('renders without crashing', () => {
-  shallow(<App />);
-});
+    const props = {
+        gameState: 'initial'
+    }
 
-it('calculateWinnerText to return a string', () => {
-  const component = shallow(<App />);
-
-  expect(component.instance().calculateWinnerText()).toBe('');
-});
-
-it('getRandomInt to return number', () => {
-  const component = shallow(<App />);
-
-  expect(typeof component.instance().getRandomInt(0, 1)).toBe('number');
+    shallow(<App {...props}/>);
 });
 
 
-it('getRandomItemFromArr to return an item from the array', () => {
-  const component = shallow(<App />);
-  const array = [1];
+it('renders correctly in pre game mode', () => {
+    const props = {
+        gameState: 'initial'
+    }
 
-  expect(component.instance().getRandomItemFromArr(array)).toBe(1);
+    const component = shallow(<App {...props}/>);
+
+    expect(component.find('.game--pre')).toHaveLength(1);
+});
+
+it('renders correctly in play mode', () => {
+    const props = {
+        gameState: 'play'
+    }
+    const component = shallow(<App {...props}/>);
+
+    expect(component.find('.game--play')).toHaveLength(1);
+});
+
+it('renders correctly in win mode', () => {
+    const props = {
+        gameState: 'win'
+    }
+    const component = shallow(<App {...props}/>);
+
+    expect(component.find('.game--win')).toHaveLength(1);
 });

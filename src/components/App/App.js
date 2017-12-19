@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import './App.css';
 import ScoreBoardWrapper from '../ScoreBoard/ScoreBoardWrapper';
 import WinnerInfoWrapper from '../WinnerInfo/WinnerInfoWrapper'
@@ -17,20 +18,20 @@ class App extends Component {
     renderGame() {
 
         let game = (
-            <div className="game">
+            <div className="game game--pre">
                 <PreGameInfoWrapper cardDeck={this.props.cardDeck}/>
             </div>
         )
 
         if (this.props.gameState === 'win') {
             game = (
-                <div className="game">
+                <div className="game game--win">
                     <WinnerInfoWrapper />
                 </div>
             )
         } else if (this.props.gameState === 'play') {
             game = (
-                <div className="game">
+                <div className="game game--play">
                     <ScoreBoardWrapper />
                     <GameBoardWrapper />
                     <UserControlsWrapper />
@@ -55,6 +56,10 @@ class App extends Component {
             </div>
         );
     }
+}
+
+App.propTypes = {
+    gameState: PropTypes.string.isRequired
 }
 
 export default App;
