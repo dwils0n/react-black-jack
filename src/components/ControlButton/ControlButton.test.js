@@ -10,9 +10,29 @@ const props = {
 
 it('renders correctly', () => {
 
+    shallow(<ControlButton {...props} />);
+
+});
+
+it('renders correctly', () => {
+
     const component = shallow(<ControlButton {...props} />);
 
     expect(component.find('.control-btn').text()).toBe(props.btnVal);
-    expect(component.find('.control-btn').prop('data-btn-type')).toBe(props.btnType);
-
 });
+
+
+it('renders the correct btn type', () => {
+
+    const component = shallow(<ControlButton {...props} />);
+
+    expect(component.find('.control-btn').prop('data-btn-type')).toBe(props.btnType);
+});
+
+it('computeClassName returns the correct sting', () => {
+
+    const component = shallow(<ControlButton {...props} />);
+
+    expect(component.instance().computeClassName()).toBe('control-btn btnModifierClass');
+});
+

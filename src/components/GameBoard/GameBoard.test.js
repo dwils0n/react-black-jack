@@ -1,10 +1,12 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 import GameBoard from './GameBoard';
 
 const props = {
-    user: {
-        "cards":[
+    cardDeck: {},
+    handleInitialiseGame: () => {},
+    playerCards: {
+        user: [
             {
                 "id":"ace",
                 "pointVal":[11,1],
@@ -16,11 +18,7 @@ const props = {
                 "suit":"hearts"
             }
         ],
-        "score":0,
-        "total":21
-    },
-    dealer: {
-        "cards":[
+        dealer: [
             {
                 "id":"ace",
                 "pointVal":[11,1],
@@ -31,15 +29,31 @@ const props = {
                 "pointVal":10,
                 "suit":"hearts"
             }
-        ],
-        "score":0,
-        "total":21
+        ]
     }
 };
 
+
 it('renders correctly', () => {
+    shallow(<GameBoard {...props} />);
+});
 
+
+it('renders game-board correctly', () => {
     const component = shallow(<GameBoard {...props} />);
-
     expect(component.find('.game-board').length).toBe(1);
+});
+
+
+it('renders user cards list correctly', () => {
+    const component = mount(<GameBoard {...props} />);
+    expect(component.find('.user-selection__value').length).toBe(1);
+    expect(component.find('.user-selection__value .game-board__card').length).toBe(2);
+});
+
+
+it('renders dealer cards liist correctly', () => {
+    const component = mount(<GameBoard {...props} />);
+    expect(component.find('.dealer-selection__value').length).toBe(1);
+    expect(component.find('.dealer-selection__value .game-board__card').length).toBe(2);
 });
