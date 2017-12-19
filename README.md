@@ -20,6 +20,5 @@ To run the tests `npm test` from the dir<br/>
 - Add in more players.
 - Add in animations to enhance the UI and accentuate the UI updates.
 - Add in SCSS to manage CSS better.
-- Add in better testing strategy
-    - Snapshot testing
+- Add in Snapshot testing.
 
