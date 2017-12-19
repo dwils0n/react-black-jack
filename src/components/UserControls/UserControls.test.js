@@ -12,3 +12,4 @@ it('renders correctly', () => {
 
     expect(component.find('.controls').length).toBe(1);
 });
+

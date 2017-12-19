@@ -22,8 +22,6 @@ const initialState = {
 const calculateDrawCardsPlayerState = (playerObj, randomCards) => {
     const newPlayerObj = {...playerObj};
 
-    console.log(newPlayerObj, randomCards);
-
     newPlayerObj.cards = newPlayerObj.cards.concat(randomCards);
     newPlayerObj.total = utils.getCurrentTotal(newPlayerObj.cards);
 
@@ -58,8 +56,6 @@ const reducer = (state = {...initialState}, action) => {
             newInitalDrawDeckState.cardDeck = action.remainingDeck;
             newInitalDrawDeckState.dealer = calculateDrawCardsPlayerState(newInitalDrawDeckState.dealer, randomDealerCards);
             newInitalDrawDeckState.user = calculateDrawCardsPlayerState(newInitalDrawDeckState.user, randomUserCards);
-
-            console.log('RAW', newInitalDrawDeckState);
 
             return newInitalDrawDeckState;
 

@@ -91,8 +91,7 @@ export const dealerDrawMultipleCards = (cards, currentDealerCards, dealerTotal, 
 
     let dealerDraw = [...currentDealerCards],
         newDealerTotal = utils.getCurrentTotal(currentDealerCards),
-        remainingDeck = {...cards},
-        dealerTotalCheck;
+        remainingDeck = {...cards};
 
 
     while (checkForDrawDealerCard(newDealerTotal, userTotal)) {
@@ -102,8 +101,6 @@ export const dealerDrawMultipleCards = (cards, currentDealerCards, dealerTotal, 
         newDealerTotal = utils.getCurrentTotal(dealerDraw);
         remainingDeck = newCard.remainingDeck;
     }
-
-    console.log(dealerDraw);
 
     return {
         type: 'DEALER_DRAW_MULTIPLE_CARDS',

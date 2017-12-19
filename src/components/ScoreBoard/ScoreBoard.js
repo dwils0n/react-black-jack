@@ -31,13 +31,8 @@ class ScoreBoard extends Component {
 };
 
 ScoreBoard.propTypes = {
-  userScore: PropTypes.number,
-  dealerScore: PropTypes.number
+  userScore: PropTypes.number.isRequired,
+  dealerScore: PropTypes.number.isRequired
 };
-
-ScoreBoard.defaultPropTypes = {
-    userScore: 0,
-    dealerScore: 0
-}
 
 export default ScoreBoard;

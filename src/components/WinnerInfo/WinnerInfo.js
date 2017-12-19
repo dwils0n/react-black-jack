@@ -76,11 +76,11 @@ class WinnerInfo extends Component {
                 <div className="winner-info__content">
                     <h1 className="heading">{this.props.winnerText}</h1>
                     <div className="winner-info__scores">
-                        <div className="winner-info__player-info">
+                        <div className="winner-info__player-info winner-info__player-info--user">
                             <span className="winner-info__score-item">Users total: {this.props.userTotal} {this.renderIsUserBust()}</span>
                             {this.renderCards(this.props.userCards)}
                         </div>
-                        <div className="winner-info__player-info">
+                        <div className="winner-info__player-info winner-info__player-info--dealer">
                             <span className="winner-info__score-item">Dealers total: {this.props.dealerTotal} {this.renderIsDealerBust()}</span>
                             {this.renderCards(this.props.dealerCards)}
                         </div>
@@ -96,6 +96,7 @@ class WinnerInfo extends Component {
 
 WinnerInfo.propTypes = {
     cardDeck: PropTypes.shape({}).isRequired,
+    handleGameReset: PropTypes.func.isRequired,
     userCards: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
     dealerCards: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
     isUserBust: PropTypes.bool.isRequired,

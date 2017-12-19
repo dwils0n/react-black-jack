@@ -48,12 +48,12 @@ it('renders game-board correctly', () => {
 it('renders user cards list correctly', () => {
     const component = mount(<GameBoard {...props} />);
     expect(component.find('.user-selection__value').length).toBe(1);
-    expect(component.find('.user-selection__value .game-board__card').length).toBe(2);
+    expect(component.find('.user-selection__value .game-board__card').length).toBe(props.playerCards.user.length);
 });
 
 
 it('renders dealer cards liist correctly', () => {
     const component = mount(<GameBoard {...props} />);
     expect(component.find('.dealer-selection__value').length).toBe(1);
-    expect(component.find('.dealer-selection__value .game-board__card').length).toBe(2);
+    expect(component.find('.dealer-selection__value .game-board__card').length).toBe(props.playerCards.dealer.length);
 });
