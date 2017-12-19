@@ -21,7 +21,5 @@ To run the tests `npm test` from the dir<br/>
 - Add in animations to enhance the UI and accentuate the UI updates.
 - Add in SCSS to manage CSS better.
 - Add in better testing strategy
-    - More in depth unit tests.
-    - React-story-board: Look into this to test different scenarios it basically creates all possible variations of state.
     - Snapshot testing
 
