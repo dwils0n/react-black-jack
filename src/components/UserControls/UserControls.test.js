@@ -3,8 +3,25 @@ import { shallow } from 'enzyme';
 import UserControls from './UserControls';
 
 const props = {
-    hitClickHandler: () => {},
-    stickClickHandler: () => {}
+    cardDeck: {},
+    userTotal: 18,
+    dealerTotal: 10,
+    dealerCards: [
+        {
+            "id":"ace",
+            "pointVal":[11,1],
+            "suit":"diamonds"
+        },
+        {
+            "id":"king",
+            "pointVal":10,
+            "suit":"hearts"
+        }
+    ],
+    handleUpdateScore: () => {},
+    handleUpdateWinner:() => {},
+    handleDrawRandomCard: () => {}
+
 }
 
 it('renders correctly', () => {
