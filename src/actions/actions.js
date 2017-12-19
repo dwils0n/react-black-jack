@@ -112,7 +112,7 @@ export const dealerDrawMultipleCards = (cards, currentDealerCards, dealerTotal, 
 
 const checkForDrawDealerCard = (newDealerTotal, userTotal) => {
     let shouldLoop = false;
-    //TODO Switch logic to be true then set false.
+
     if ((newDealerTotal < userTotal) || (newDealerTotal < utils.minPlayerVal) || (newDealerTotal === userTotal && newDealerTotal < utils.minPlayerVal)) {
         shouldLoop = true;
     }
