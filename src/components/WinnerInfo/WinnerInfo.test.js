@@ -7,7 +7,7 @@ const computeProps = (options) => ({
     cardDeck: {},
     winnerText: 'You Win',
     handleGameReset: () => {},
-    userCards: [
+    player1Cards: [
         {
             "id":"ace",
             "pointVal":[11,1],
@@ -36,10 +36,10 @@ const computeProps = (options) => ({
             "suit":"spades"
         }
     ],
-    isUserBust: false,
+    isplayer1Bust: false,
     isDealerBust: true,
     dealerTotal: 22,
-    userTotal: 18
+    player1Total: 18
 });
 
 it('renders correctly', () => {
@@ -48,7 +48,7 @@ it('renders correctly', () => {
     shallow(<WinnerInfo {...props} />);
 });
 
-it('title renders correctly when user wins', () => {
+it('title renders correctly when player1 wins', () => {
     const props = {...computeProps()};
     const component = shallow(<WinnerInfo {...props} />);
 
@@ -62,22 +62,22 @@ it('title renders correctly', () => {
     expect(component.find('.heading').text()).toBe(props.winnerText);
 });
 
-it('user isBust flag renders correctly', () => {
+it('player1 isBust flag renders correctly', () => {
     const props = computeProps();
-    props.isUserBust = true;
+    props.isplayer1Bust = true;
     props.isDealerBust = false;
     props.dealerTotal = 18;
-    props.userTotal = 22;
+    props.player1Total = 22;
     const component = shallow(<WinnerInfo {...props} />);
 
-    expect(component.find('.winner-info__player-info--user .winner-info__score-item').text()).toBe(`Users total: ${props.userTotal} ${bustText}`);
+    expect(component.find('.winner-info__player-info--player1 .winner-info__score-item').text()).toBe(`player1s total: ${props.player1Total} ${bustText}`);
 });
 
-it('renders user cards correctly', () => {
+it('renders player1 cards correctly', () => {
     const props = computeProps();
     const component = mount(<WinnerInfo {...props} />);
 
-    expect(component.find('.winner-info__player-info--user .card').length).toBe(props.userCards.length);
+    expect(component.find('.winner-info__player-info--player1 .card').length).toBe(props.player1Cards.length);
 });
 
 it('renders dealer cards correctly', () => {

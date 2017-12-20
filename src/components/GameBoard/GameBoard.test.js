@@ -6,7 +6,7 @@ const props = {
     cardDeck: {},
     handleInitialiseGame: () => {},
     playerCards: {
-        user: [
+        player1: [
             {
                 "id":"ace",
                 "pointVal":[11,1],
@@ -45,10 +45,10 @@ it('renders game-board correctly', () => {
 });
 
 
-it('renders user cards list correctly', () => {
+it('renders player1 cards list correctly', () => {
     const component = mount(<GameBoard {...props} />);
-    expect(component.find('.user-selection__value').length).toBe(1);
-    expect(component.find('.user-selection__value .game-board__card').length).toBe(props.playerCards.user.length);
+    expect(component.find('.player1-selection__value').length).toBe(1);
+    expect(component.find('.player1-selection__value .game-board__card').length).toBe(props.playerCards.player1.length);
 });
 
 

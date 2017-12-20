@@ -12,7 +12,7 @@ import WinnerInfo from './WinnerInfo'
 const getwinnerText = (winner) => {
      let winnerText = '';
 
-    if (winner === 'user') {
+    if (winner === 'player1') {
         winnerText = 'You Win';
     } else if (winner === 'dealer') {
         winnerText = 'You Loose';
@@ -24,15 +24,15 @@ const getwinnerText = (winner) => {
 }
 
 const mapStateToProps = (state, ownProps) => {
-    const {winner, user, dealer, cardDeck} = state,
+    const {winner, player1, dealer, cardDeck} = state,
         winnerText = getwinnerText(winner);
 
     return {
         cardDeck,
-        userCards: user.cards,
+        player1Cards: player1.cards,
         dealerCards: dealer.cards,
-        isUserBust: user.isBust,
-        userTotal: user.total,
+        isplayer1Bust: player1.isBust,
+        player1Total: player1.total,
         isDealerBust: dealer.isBust,
         dealerTotal: dealer.total,
         winnerText

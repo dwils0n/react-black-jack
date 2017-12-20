@@ -12,12 +12,12 @@ class ScoreBoard extends Component {
     */
     render() {
 
-        const { userScore, dealerScore } = this.props;
+        const { player1Score, dealerScore } = this.props;
 
         return (
             <div className="score-board">
-                <div className="score-board__user">
-                    user: <span className="score-value">{userScore}</span>
+                <div className="score-board__player1">
+                    player1: <span className="score-value">{player1Score}</span>
                 </div>
                 <div className="score-board__title">
                     Score Board
@@ -31,7 +31,7 @@ class ScoreBoard extends Component {
 };
 
 ScoreBoard.propTypes = {
-  userScore: PropTypes.number.isRequired,
+  player1Score: PropTypes.number.isRequired,
   dealerScore: PropTypes.number.isRequired
 };
 

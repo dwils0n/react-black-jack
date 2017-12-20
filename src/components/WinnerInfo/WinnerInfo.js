@@ -15,16 +15,16 @@ class WinnerInfo extends Component {
     }
 
     /**
-        * render the BUST text based on if User is bust
+        * render the BUST text based on if player1 is bust
         *
-        * @param {string} propCheck - either isUserBust or isDealerBust
+        * @param {string} propCheck - either isplayer1Bust or isDealerBust
         * 
         * @returns {string} - returns the BUST text
     */
-    renderIsUserBust() {
+    renderIsPlayer1Bust() {
         let text = false;
 
-        if (this.props.isUserBust) {
+        if (this.props.isPlayer1Bust) {
             text = '(BUST)';
         }
 
@@ -34,7 +34,7 @@ class WinnerInfo extends Component {
     /**
         * render the BUST text based on if dealer is bust
         *
-        * @param {string} propCheck - either isUserBust or isDealerBust
+        * @param {string} propCheck - either isDealerBust or isDealerBust
         * 
         * @returns {string} - returns the BUST text
     */
@@ -76,9 +76,9 @@ class WinnerInfo extends Component {
                 <div className="winner-info__content">
                     <h1 className="heading">{this.props.winnerText}</h1>
                     <div className="winner-info__scores">
-                        <div className="winner-info__player-info winner-info__player-info--user">
-                            <span className="winner-info__score-item">Users total: {this.props.userTotal} {this.renderIsUserBust()}</span>
-                            {this.renderCards(this.props.userCards)}
+                        <div className="winner-info__player-info winner-info__player-info--player1">
+                            <span className="winner-info__score-item">player1s total: {this.props.player1Total} {this.renderIsPlayer1Bust()}</span>
+                            {this.renderCards(this.props.player1Cards)}
                         </div>
                         <div className="winner-info__player-info winner-info__player-info--dealer">
                             <span className="winner-info__score-item">Dealers total: {this.props.dealerTotal} {this.renderIsDealerBust()}</span>
@@ -97,12 +97,12 @@ class WinnerInfo extends Component {
 WinnerInfo.propTypes = {
     cardDeck: PropTypes.shape({}).isRequired,
     handleGameReset: PropTypes.func.isRequired,
-    userCards: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
+    player1Cards: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
     dealerCards: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
-    isUserBust: PropTypes.bool.isRequired,
+    isplayer1Bust: PropTypes.bool.isRequired,
     isDealerBust: PropTypes.bool.isRequired,
     dealerTotal: PropTypes.number.isRequired,
-    userTotal: PropTypes.number.isRequired,
+    player1Total: PropTypes.number.isRequired,
     winnerText: PropTypes.string.isRequired
 }
 

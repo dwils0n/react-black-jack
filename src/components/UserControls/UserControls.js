@@ -14,15 +14,15 @@ class UserControls extends Component {
     componentWillReceiveProps(nextProps) {
         const {handleUpdateWinner, handleUpadateBust} = this.props;
 
-        if (utils.checkForBust(nextProps.userTotal)) {
-            handleUpadateBust('user');
+        if (utils.checkForBust(nextProps.player1Total)) {
+            handleUpadateBust('player1');
             handleUpdateWinner('dealer');
         } else if (utils.checkForBust(nextProps.dealerTotal)) {
             handleUpadateBust('dealer');
-            handleUpdateWinner('user');
-        } else if (nextProps.dealerTotal > nextProps.userTotal) {
+            handleUpdateWinner('player1');
+        } else if (nextProps.dealerTotal > nextProps.player1Total) {
             handleUpdateWinner('dealer');
-        } else if (nextProps.dealerTotal >= utils.minPlayerVal && nextProps.dealerTotal === nextProps.userTotal) {
+        } else if (nextProps.dealerTotal >= utils.minPlayerVal && nextProps.dealerTotal === nextProps.player2Total) {
             handleUpdateWinner('tie');
         }
     }
@@ -34,7 +34,7 @@ class UserControls extends Component {
         * @param {event} e - event passed in from react events
     */
     hitTrigger(e) {
-        this.props.handleDrawRandomCard(this.props.cardDeck, 'user');
+        this.props.handleDrawRandomCard(this.props.cardDeck, 'player1');
     }
 
 
@@ -44,7 +44,7 @@ class UserControls extends Component {
         * @param {event} e - event passed in from react events
     */
     stickTrigger(e) {
-        this.props.handleDealerMultiDrawTotal(this.props.cardDeck, this.props.dealerCards, this.props.dealerTotal, this.props.userTotal);
+        this.props.handleDealerMultiDrawTotal(this.props.cardDeck, this.props.dealerCards, this.props.dealerTotal, this.props.player1Total);
     }
 
 
@@ -65,7 +65,7 @@ class UserControls extends Component {
 
 UserControls.propTypes = {
     cardDeck: PropTypes.shape({}).isRequired,
-    userTotal: PropTypes.number.isRequired,
+    player1Total: PropTypes.number.isRequired,
     dealerTotal: PropTypes.number.isRequired,
     dealerCards: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
     handleUpdateScore: PropTypes.func.isRequired,

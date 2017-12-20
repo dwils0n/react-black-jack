@@ -1,10 +1,10 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import UserControls from './UserControls';
+import userControls from './userControls';
 
 const props = {
     cardDeck: {},
-    userTotal: 18,
+    player1Total: 18,
     dealerTotal: 10,
     dealerCards: [
         {
@@ -25,7 +25,7 @@ const props = {
 }
 
 it('renders correctly', () => {
-    const component = shallow(<UserControls {...props} />);
+    const component = shallow(<userControls {...props} />);
 
     expect(component.find('.controls').length).toBe(1);
 });

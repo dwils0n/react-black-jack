@@ -3,7 +3,7 @@ import ScoreBoard from './ScoreBoard'
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    userScore: state.user.score,
+    player1Score: state.playersList.player1.score,
     dealerScore: state.dealer.score
   }
 }

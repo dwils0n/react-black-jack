@@ -36,10 +36,10 @@ class GameBoard extends Component {
     render() {
         return (
             <div className="game-board">
-                <div className="user-selection">
-                    User Cards:
-                    <span className="user-selection__value">
-                        {this.renderCards('user')}
+                <div className="player1-selection">
+                    Player 1 Cards:
+                    <span className="player1-selection__value">
+                        {this.renderCards('player1')}
                     </span>
                 </div>
                 <div className="dealer-selection">
@@ -57,7 +57,7 @@ GameBoard.propTypes = {
     cardDeck: PropTypes.shape({}).isRequired,
     handleInitialiseGame: PropTypes.func.isRequired,
     playerCards: PropTypes.shape({
-        user: PropTypes.arrayOf(PropTypes.shape()).isRequired,
+        player1: PropTypes.arrayOf(PropTypes.shape()).isRequired,
         dealer: PropTypes.arrayOf(PropTypes.shape()).isRequired
     }).isRequired
 }

@@ -62,14 +62,18 @@ export const updatePlayerTotal = (player, total) => {
     }
 }
 
-export const initialDrawCards = (cards) => {
+export const initialDrawCards = (cards, playersList) {
     const newCards = {...cards},
-        userCardData = getRandomCardData(newCards, 'user', 2),
+        playersCards = getRandomCardData(newCards, 'user', 2),
         dealerCardData = getRandomCardData(userCardData.remainingDeck, 'dealer', 1),
         remainingDeck = dealerCardData.remainingDeck;
 
+    //const {playersList, cards} = actions;
+    
+
     return {
         type: 'INITIAL_DRAW_CARDS',
+        playersList,
         randomUserCards: userCardData.randomCards,
         randomDealerCards: dealerCardData.randomCards,
         remainingDeck

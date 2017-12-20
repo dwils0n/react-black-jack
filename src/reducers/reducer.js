@@ -1,16 +1,33 @@
 import cardDeck from '../constants/cardDeck';
 import utils from '../utils/utils';
 
+
+const numberOfPlayers = 2;
+const createInitialPlayersState = (numOfPlayers) => {
+    const players = [];
+
+    for (let i= 0; i < numOfPlayers; i++) {
+
+        const player = {
+            id: `player${i}`,
+            cards: [],
+            score: 0,
+            total: 0,
+            isBust: false
+        };
+
+        players.push(player)
+        
+    }
+
+    return players;
+};
+
 const initialState = {
     cardDeck: cardDeck.cards,
     gameState: 'initial',
     winner: '',
-    user: {
-        cards: [],
-        score: 0,
-        total: 0,
-        isBust: false
-    },
+    playersList: createInitialPlayersState(numberOfPlayers),
     dealer: {
         cards: [],
         score: 0,
@@ -18,6 +35,7 @@ const initialState = {
         isBust: false
     }
 };
+
 
 const calculateDrawCardsPlayerState = (playerObj, randomCards) => {
     const newPlayerObj = {...playerObj};
@@ -32,10 +50,21 @@ const reducer = (state = {...initialState}, action) => {
 
     switch (action.type) {
         case 'RESET_DECK':
+            const newPlayersList = newResetState.playersList.map((player) => {
+                const newPlayer = {
+                    ..player,
+                    cards: [],
+                    total: 0,
+                    isBust: false
+                };
 
-            const newResetState = {...initialState};
+                return newPlayer;
+            });
+            const newResetState = {
+                ...initialState,
+                playersList: newPlayersList
+            };            
 
-            newResetState.user.score = state.user.score;
             newResetState.dealer.score = state.dealer.score;
 
             return newResetState;
@@ -55,7 +84,7 @@ const reducer = (state = {...initialState}, action) => {
 
             newInitalDrawDeckState.cardDeck = action.remainingDeck;
             newInitalDrawDeckState.dealer = calculateDrawCardsPlayerState(newInitalDrawDeckState.dealer, randomDealerCards);
-            newInitalDrawDeckState.user = calculateDrawCardsPlayerState(newInitalDrawDeckState.user, randomUserCards);
+            newInitalDrawDeckState.player1 = calculateDrawCardsPlayerState(newInitalDrawDeckState.player1, randomUserCards);
 
             return newInitalDrawDeckState;
 

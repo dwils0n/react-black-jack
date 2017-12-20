@@ -4,11 +4,11 @@ import UserControls from './UserControls';
     
 
 const mapStateToProps = (state, ownProps) => {
-    const {cardDeck, user, dealer} = state;
+    const {cardDeck, player1, dealer} = state;
 
     return {
         cardDeck,
-        userTotal: user.total,
+        player1Total: player1.total,
         dealerTotal: dealer.total,
         dealerCards: dealer.cards
     }
@@ -38,8 +38,8 @@ const mapDispatchToProps = (dispatch) => {
         handleUpdatePlayerTotal: (player, total) => {
             dispatch(updatePlayerTotal(player, total));
         },
-        handleDealerMultiDrawTotal: (cards, currentDealerCards, dealerTotal, userTotal) => {
-            dispatch(dealerDrawMultipleCards(cards, currentDealerCards, dealerTotal, userTotal));
+        handleDealerMultiDrawTotal: (cards, currentDealerCards, dealerTotal, player1Total) => {
+            dispatch(dealerDrawMultipleCards(cards, currentDealerCards, dealerTotal, player1Total));
         }
     }
 }
